@@ -4,24 +4,22 @@ import { useSelector } from 'react-redux'
 import { IoIosArrowDown } from 'react-icons/io'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useNavigate } from 'react-router-dom';
 
 function AppointmentCalender() {
     const appointmentDetail = useSelector((state) => state.Appointments);
-    const navigate = useNavigate()
     const [date, setDate] = useState(new Date());
     const [viewDropDown, setViewDropDown] = useState(false)
-    const [year, month, day] = date.toISOString().substring(0, 10).split('-')
+    const [month, day, year] = date.toLocaleDateString().split('/')
     const [view, setView] = useState("Day")
-    let dateFormat = year + "-" + month + "-" + day;
-    let dumpData=[];
-    const [data,setData] = useState([])
+    let dateFormat = year + "-" + (parseInt(month / 10) > 0 ? month : ("0" + month)) + "-" + day;
+    let dumpData = [];
+    const [data, setData] = useState([])
 
     const handleData = () => {
-        dumpData=[]
+        dumpData = []
         appointmentDetail.forEach(detail => {
             if (view === "Day") {
-                if (detail.date === dateFormat) { console.log(dateFormat, detail.date); dumpData.push(detail) }
+                if (detail.date === dateFormat) { dumpData.push(detail) }
             }
             else if (view === "Month") {
                 if (detail.date.substring(0, 7) === dateFormat.substring(0, 7)) dumpData.push(detail);
@@ -34,11 +32,10 @@ function AppointmentCalender() {
         handleData()
         setData(dumpData)
     }, [date, view])
-
     return (
-        <div className="max-w-[1600px] w-full p-12 pt-32 flex flex-col">
+        <div className="sm:max-w-screen w-full p-4 sm:p-12 lg:pt-32 flex flex-col">
             <div className='w-full'>
-                <div className='flex items-center justify-between shadow border px-10 py-5 bg-gray-50 rounded-t'>
+                <div className='flex items-center justify-between shadow border px-3 sm:px-10 py-5 bg-gray-50 rounded-t'>
                     <div className='flex flex-col'>
                         <span className=' mb-2 font-semibold'>
                             {new Date(year, month, 0).toLocaleString('default', { month: 'long' })}
@@ -46,7 +43,7 @@ function AppointmentCalender() {
                         </span>
                         <span className='text-gray-500'>{date.toLocaleDateString("default", { weekday: 'long' })}</span>
                     </div>
-                    <div className='flex items-center gap-4'>
+                    <div className='flex flex-col md:flex-row justify-center gap-4'>
                         <div className="relative max-w-sm ">
                             <div className="absolute z-50 inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                                 <svg className="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -58,15 +55,12 @@ function AppointmentCalender() {
                         </div>
                         <div className='flex relative items-center px-4 py-2 rounded-md border shadow gap-2 bg-white'>
                             <span>{view} View</span>
-                            <IoIosArrowDown className='text-gray-500' onClick={() => setViewDropDown(true)} />
+                            <IoIosArrowDown className='text-gray-500' onClick={() => setViewDropDown(!viewDropDown)} />
                             <div className={"absolute flex flex-col shadow rounded bg-white top-12 " + (viewDropDown ? '' : 'hidden')}>
                                 <span className='text-sm p-2 border-b cursor-pointer hover:bg-blue-700 hover:text-white' onClick={() => { setView("Day"); setViewDropDown(false) }}>Day View</span>
                                 <span className='text-sm p-2 border-b cursor-pointer hover:bg-blue-700 hover:text-white' onClick={() => { setView("Month"); setViewDropDown(false) }}>Month View</span>
                                 <span className='text-sm p-2 border-b cursor-pointer hover:bg-blue-700 hover:text-white' onClick={() => { setView("Year"); setViewDropDown(false) }}>Year View</span>
                             </div>
-                        </div>
-                        <div onClick={() => navigate('/add')} className='flex items-center px-4 py-2 rounded-md border shadow cursor-pointer gap-2 bg-blue-700 text-white'>
-                            Add Appointment
                         </div>
                     </div>
                 </div>
@@ -79,7 +73,7 @@ function AppointmentCalender() {
                                 return (
                                     <Appointment key={idx} appointmentDetail={detail} />
                                 )
-                            }):<div className='flex w-full items-center justify-center py-12 text-xl font-medium'> No Appointments in specific period. Please chose other view or date</div>
+                            }) : <div className='flex w-full items-center justify-center py-12 text-xl font-medium'> No Appointments in specific period. Please chose other view or date</div>
                         }
                     </div>
 

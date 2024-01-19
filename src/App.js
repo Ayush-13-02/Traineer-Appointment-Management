@@ -7,7 +7,7 @@ import AllAppointments from "./pages/AllAppointments";
 function App() {
 
   return (
-    <div className="max-w-screen  w-full flex flex-col items-center m-0 p-0">
+    <div className="sm:max-w-screen-xl w-full flex flex-col items-center mx-auto m-0 p-0">
       <BrowserRouter>
         <Navbar />
         <Routes>

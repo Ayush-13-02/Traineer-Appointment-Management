@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 const LandingPage = () => {
     const navigate = useNavigate();
     return (
-        <section id="Home" className="px-8 pt-4">
-            <div className="w-full p-2 flex flex-col md:flex-row gap-12 items-center justify-center">
-                <div className="w-full md:w-1/2">
-                    <h1 className="text-4xl lg:text-5xl font-bold mb-4">Fitness Trainer App</h1>
+        <section className="sm:max-w-screen px-8 w-full pt-2 sm:pt-8">
+            <div className="w-full h-full p-2 flex flex-col md:flex-row gap-12 items-center justify-center">
+                <div className="w-full lg:w-1/2">
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Fitness Trainer App</h1>
                     <p className="text-lg text-justify tracking-wide">
                         Efficiently manage your appointments with ease. Your journey to fitness starts here!
                     </p>
@@ -19,7 +19,7 @@ const LandingPage = () => {
                         <span onClick={() => navigate('/add')} className="rounded-full bg-slate-800 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:text-slate-400 cursor-pointer">Add appointment</span>
                     </div>
                 </div>
-                <div className="w-full md:w-1/2">
+                <div className="w-full lg:w-1/2">
                     <img className='w-full' src={Gym} alt="Gym" />
                 </div>
             </div>

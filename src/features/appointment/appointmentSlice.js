@@ -24,7 +24,7 @@ export const appointmentSlice = createSlice({
                 pinCode: action.payload.pinCode
             };
             state.push(appointment);
-            // localStorage.setItem("Appointment", JSON.stringify(state));
+            localStorage.setItem("Appointment", JSON.stringify(state));
         },
         removeAppointment: (state, action) => {
             // Modify the existing state directly
