@@ -34,6 +34,7 @@ function AppointmentCalender() {
     }, [date, view])
     return (
         <div className="sm:max-w-screen w-full p-4 sm:p-12 lg:pt-32 flex flex-col">
+            <div className='text-4xl font-bold pb-6'>Calender</div>
             <div className='w-full'>
                 <div className='flex items-center justify-between shadow border px-3 sm:px-10 py-5 bg-gray-50 rounded-t'>
                     <div className='flex flex-col'>

@@ -9,7 +9,7 @@ function AllAppointments() {
 
     return (
         <div className='w-full flex flex-col items-start gap-8 px-2 pt-8 lg:p-6 lg:pt-32'>
-            <div className='text-3xl font-bold px-3'>Appointments</div>
+            <div className='text-4xl font-bold px-3'>Appointments</div>
             {
                 (Array.isArray(appointmentDetail) && appointmentDetail.length > 0) ?
                     <div className='flex items-start flex-col lg:flex-row w-full gap-8'>
