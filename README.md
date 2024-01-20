@@ -22,9 +22,18 @@ The Fitness Trainer Appointment Management Web Application is designed to stream
 ![Alt Text](./src/assests/image/home.png)
 
 ## All Apointments
+
+- To see all detail of appointment click on tht appointment.
+
 ![Alt Text](./src/assests/image/list.png)
 
 ## Calender
+
+- **Day View:** Retrieve all the appointments which have on the selected date.
+- **Month View:** Retrieve all the appointments which have on the month of selected date.
+- **Year View:** Retrieve all the appointments which have on the year of selected date.
+
+- If no appointments in the selected scenario it shows "No Appointments".
 ![Alt Text](./src/assests/image/calender.png)
 
 ## Technologies Used
@@ -34,10 +43,20 @@ The Fitness Trainer Appointment Management Web Application is designed to stream
 - **Styling:** Apply modern styling practices using a CSS preprocessor or utility-first CSS frameworks like Tailwind CSS.
 - **Routing:** Use a routing library (e.g., React Router) for navigation between different pages.
 
+## Getting Started
 
-# Getting Started with Create React App
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Ayush-13-02/Traineer-Appointment-Management.git
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2. **Install Dependencies:**
+   ```bash
+   cd traineer-appointment-management
+   npm install
+
+3. **Run application:**
+   ```bash
+   npm start
 
 ## Available Scripts
 
