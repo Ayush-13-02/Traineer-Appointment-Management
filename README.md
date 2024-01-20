@@ -34,6 +34,8 @@ The Fitness Trainer Appointment Management Web Application is designed to stream
 - **Year View:** Retrieve all the appointments which have on the year of selected date.
 
 - If no appointments in the selected scenario it shows "No Appointments".
+
+
 ![Alt Text](./src/assests/image/calender.png)
 
 ## Technologies Used
